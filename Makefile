@@ -1,11 +1,17 @@
-CFLAGS += -std=c99
+CC=gcc
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=2048.c
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=2048
 
-.PHONY: all clean test
+all: $(SOURCES) $(EXECUTABLE)
+	
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-all: 2048
+.c.o:
+	$(CC) $(CFLAGS) $< -o $@
 
-test: 2048
-	./2048 test
-
-clean:
-	rm -f 2048
+clean: 
+	$(RM) $(EXECUTABLE)
