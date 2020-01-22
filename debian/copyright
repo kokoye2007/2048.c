@@ -6,7 +6,6 @@ Source: https://github.com/mevdschee/2048.c
 Files: *
 Copyright: 2020 Maurits van der Schee <maurits@vdschee.nl>
            2020 Ko Ko Ye <kokoye2007@gmail.com>
-
 License: MIT
 
 Files: debian/*
