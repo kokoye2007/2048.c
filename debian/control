@@ -1,0 +1,24 @@
+Source: 2048
+Section: games
+Priority: optional
+Maintainer: kokoye2007 <kokoye2007@gmail.com>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.4.1
+Homepage: https://github.com/mevdschee/2048.c
+Vcs-Browser: https://github.com/kokoye2007/2048.c
+Vcs-Git: https://github.com/kokoye2007/2048.c.git
+
+Package: 2048
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: 2048 Simple number game for the text console
+ As you may already know, 2048 is a fun puzzle game in which
+ you have to move the number tiles across the board. If two
+ tiles with the same value touch, they merge and their values
+ add up. The goal is to have a tile with the value 2048.
+ .
+ 2048 is a really fun and popular game. Being a game, no other
+ packages depend on it. There is another package that does the
+ same thing, called 2048-qt, but it is a graphical version, and
+ this version is text-mode. It is much more lightweight, it depends
+ only on libc.
