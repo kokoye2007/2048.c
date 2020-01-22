@@ -11,7 +11,7 @@ Vcs-Git: https://github.com/kokoye2007/2048.c.git
 Package: 2048
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: 2048 Simple number game for the text console
+Description: Simple number game for the text console
  As you may already know, 2048 is a fun puzzle game in which
  you have to move the number tiles across the board. If two
  tiles with the same value touch, they merge and their values

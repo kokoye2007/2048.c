@@ -1,17 +1,23 @@
-CC=gcc
-CFLAGS=-c -Wall
-LDFLAGS=
-SOURCES=2048.c
-OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=2048
+TARGET     =  2048
+PREFIX    :=  /usr
+BINDIR     =  $(PREFIX)/games
+OBJS      :=  $(patsubst %.cpp,%.o,$(wildcard *.c))
+CXX       :=  gcc
+LDLIBS    +=  
 
-all: $(SOURCES) $(EXECUTABLE)
-	
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
-.c.o:
-	$(CC) $(CFLAGS) $< -o $@
+install: $(TARGET)
+	install -d $(DESTDIR)$(BINDIR)
+	install -Dm755 $(TARGET) $(DESTDIR)$(BINDIR)/$(TARGET)
 
-clean: 
-	$(RM) $(EXECUTABLE) $(OBJECTS)
+remove: uninstall
+
+uninstall:
+	$(RM) $(DESTDIR)$(BINDIR)/$(TARGET)
+
+clean:
+	$(RM) $(wildcard ./*.o) $(TARGET)
+
+.PHONY: install remove uninstall clean
